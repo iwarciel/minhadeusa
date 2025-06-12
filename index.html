@@ -121,6 +121,8 @@
 
   <div class="card">
     <h2>Minha Carta para Você</h2>
+<!-- Contador de amor -->
+<div id="love-counter" style="margin-bottom: 20px; font-weight: bold; font-size: 1.2rem; color: #ffb6c1;"></div>
     <p>
       Desde o dia em que nossos caminhos se cruzaram, meu mundo ganhou mais cor. Você é minha calmaria, minha maré mansa em dias difíceis. Neste oceano chamado vida, eu encontrei em você meu porto seguro.<br /><br />
       Amar você é mergulhar em sentimentos profundos e verdadeiros. Feliz Dia dos Namorados, meu amor. 🌹<br /><br />
@@ -129,6 +131,7 @@
     <button onclick="window.location.href='https://wa.me/seunumero'">Te Amo ❤️</button>
     <button onclick="document.querySelector('.message-box').style.display='block'">Deixe uma mensagem pra mim 💭</button>
 <button onclick="window.location.href='pagina2.html'">Leia mais 💌</button>
+
     <div class="message-box">
       <form action="https://formsubmit.co/marcielwork@yahoo.com" method="POST">
         <textarea name="mensagem" rows="4" placeholder="..."></textarea>
@@ -174,5 +177,28 @@
       }
     });
   </script>
+<script>
+  function updateCounter() {
+    const startDate = new Date("2024-12-08T00:00:00");
+    const now = new Date();
+    let diff = now - startDate;
+
+    let minutes = Math.floor(diff / 60000);
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
+    let months = Math.floor(days / 30.4375); // média de dias por mês
+
+    days %= 30.4375;
+    hours %= 24;
+    minutes %= 60;
+
+    document.getElementById('love-counter').innerHTML =
+      `Juntos há ${months} meses, ${Math.floor(days)} dias, ${hours} horas e ${minutes} minutos 💖`;
+  }
+
+  setInterval(updateCounter, 60000); // Atualiza a cada minuto
+  updateCounter(); // Primeira chamada
+</script>
+
 </body>
 </html>
