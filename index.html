@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marciel & Jênifer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .emoji {
+      position: absolute;
+      animation: fall 5s linear infinite;
+      font-size: 2rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% { top: -5%; opacity: 0.8; }
+      100% { top: 110%; opacity: 0; }
+    }
+
+    .title {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-top: 50px;
+      color: #888;
+    }
+
+    .message-box {
+      display: none;
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .video-full {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: relative;
+      z-index: 0;
+    }
+
+    .audio-control {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música -->
+  <audio id="bg-audio" autoplay loop>
+    <source src="oceano.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Botão para pausar música -->
+  <div class="audio-control">
+    <button onclick="toggleAudio()">🔊 Som</button>
+  </div>
+
+  <!-- Vídeo em tela cheia -->
+  <video class="video-full" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
+  <!-- Conteúdo principal -->
+  <div class="title">Marciel & Jênifer</div>
+  <div class="subtitle">Desde 08/12/2025 💖</div>
+
+  <div class="card">
+    <h2>Minha Carta para Você</h2>
+    <p>
+      Desde o dia em que nossos caminhos se cruzaram, meu mundo ganhou mais cor. Você é minha calmaria, minha maré mansa em dias difíceis. Neste oceano chamado vida, eu encontrei em você meu porto seguro.<br /><br />
+      Amar você é mergulhar em sentimentos profundos e verdadeiros. Feliz Dia dos Namorados, meu amor. 🌹<br /><br />
+      Te amo mais do que palavras podem dizer. 💌
+    </p>
+    <button onclick="window.location.href='https://wa.me/seunumero'">Te Amo ❤️</button>
+    <button onclick="document.querySelector('.message-box').style.display='block'">Deixe uma mensagem pra mim 💭</button>
+<button onclick="window.location.href='pagina2.html'">Leia mais 💌</button>
+    <div class="message-box">
+      <form action="https://formsubmit.co/marcielwork@yahoo.com" method="POST">
+        <textarea name="mensagem" rows="4" placeholder="..."></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://obrigado.netlify.app">
+        <button type="submit">Enviar</button>
+
+      </form>
+    </div>
+  </div>
+
+  <footer>Feito com ❤️ por Marciel para Jênifer - Dia dos Namorados 2025</footer>
+
+  <script>
+    // Emojis caindo
+    const emojis = ['💖','🌹','✨','❤️'];
+    setInterval(() => {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.top = '-5%';
+      emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 7000);
+    }, 300);
+
+    // Controlar o som
+    function toggleAudio() {
+      const audio = document.getElementById('bg-audio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Desbloquear autoplay com clique (para celulares)
+    window.addEventListener('click', () => {
+      const audio = document.getElementById('bg-audio');
+      if (audio.paused) {
+        audio.play().catch(e => console.log('Autoplay bloqueado:', e));
+      }
+    });
+  </script>
+</body>
+</html>

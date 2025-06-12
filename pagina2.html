@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Moon 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Georgia', serif;
+      color: white;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.5);
+      max-width: 900px;
+    }
+
+    h2 {
+      color: #ffb6c1;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #ffd700;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    .audio-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+
+    .audio-control button {
+      background-color: #ffb6c1;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://music.youtube.com/watch?v=-aPAqFbrkJ0">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="audio-control">
+    <button onclick="toggleMusic()">🔊 Play / Pause</button>
+  </div>
+
+  <!-- Página 1 -->
+  <div id="page1" class="page active">
+    <video class="bg-video" autoplay loop muted>
+      <source src="https://cdn.pixabay.com/vimeo/292066252/space-15476.mp4?width=1280&hash=cb3f21f5b06f3a70e06aa6580c465594964f80e7" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>✨ My Moon ✨</h2>
+      <p>I used to think there was a right time for things to happen...<br>
+        But you showed me otherwise.<br>
+        The right time is when we find the courage to express what we feel.</p>
+      <p>Thank you for showing me that.<br>
+        If it weren’t for you, maybe we wouldn’t even be celebrating this special date.</p>
+      <p>Every moment — of pain, joy, and tears — was essential for building what we have today.</p>
+      <p>Thank you for testing me, because that let me prove that my love for you goes far beyond physical attraction.</p>
+      <h3>I LOVE YOU SO MUCH, MY MOON 💖</h3>
+      <button onclick="goToPage(2)">🌠 Go to the stars</button>
+    </div>
+  </div>
+
+  <!-- Página 2 -->
+  <div id="page2" class="page">
+    <video class="bg-video" autoplay loop muted>
+      <source src="https://cdn.vecteezy.com/system/resources/previews/050/703/950/mp4/stunning-cosmic-sunrise-featuring-the-sun-and-moon-in-space-capturing-the-serene-moment-of-a-new-day-dawning-in-the-universe-with-celestial-bodies-shining-brightly-free-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>🌌 You Are My Universe 🌌</h2>
+      <p>Even across galaxies and time,<br>
+         I would still choose you.</p>
+      <p>You are my dawn in the darkest night.<br>
+         The moon that listens. The sun that warms me.<br>
+         The light that never fades in my sky.</p>
+      <h3>I will love you in every dimension 💫</h3>
+      <button onclick="goToPage(1)">⬅️ Back to My Moon</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(pageNumber) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      music.paused ? music.play() : music.pause();
+    }
+  </script>
+</body>
+</html>
+
