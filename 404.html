@@ -3,26 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <title>Página não encontrada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #f8f8f8;
-      color: #333;
-      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #2d3748;
+      font-family: 'Segoe UI', Arial, sans-serif;
       text-align: center;
-      padding-top: 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 400px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 32px 24px;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 10px;
+      color: #e53e3e;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin: 0 0 16px 0;
+      font-weight: 500;
     }
     p {
-      font-size: 1.3em;
-      color: #666;
+      font-size: 1.2em;
+      color: #4a5568;
+      margin-bottom: 24px;
+    }
+    a {
+      color: #3182ce;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      border-bottom: 1px dashed #3182ce;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #2b6cb0;
+      border-bottom: 1px solid #2b6cb0;
+    }
+    .emoji {
+      font-size: 4em;
+      margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
-  <h3>😢 Sorry.</h3>
-  <p>O usuário deletou essa página.</p>
+  <div class="container">
+    <div class="emoji">😢</div>
+    <h1>404</h1>
+    <h2>Página não encontrada</h2>
+    <p>Desculpe, esta página não existe ou foi removida.</p>
+    <a href="/">Voltar para a página inicial</a>
+  </div>
 </body>
 </html>
